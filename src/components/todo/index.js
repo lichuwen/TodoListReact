@@ -19,7 +19,7 @@ class Todo extends React.Component{
     }
 
     changeStatus = () => {
-        this.props.changeStatus(this.props.id)
+        this.props.changeStatus(this.props.id,this.props.status)
     }
 
     render(){
