@@ -6,10 +6,15 @@ class Todo extends React.Component{
         }
     }
 
+    deleteTodo = () => {
+        this.props.deleteTodo(this.props.id)
+    }
+
     render(){
         return(
             <div>
                 {this.props.text}
+                <button onClick={this.deleteTodo}>x</button>
             </div>
         )
     }
