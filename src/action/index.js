@@ -18,3 +18,10 @@ export function changeStatus(id){
         id: id
     }
 }
+
+export function initList(data){
+    return{
+        type: "INIT_LIST",
+        data: data
+    }
+}

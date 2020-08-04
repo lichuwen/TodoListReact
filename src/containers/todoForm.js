@@ -1,10 +1,12 @@
-import {addTodo} from "../action"
+import {addTodo,initList} from "../action"
 import {connect} from "react-redux"
 import TodoForm from "../components/todoForm/index"
 
+
 const mapDispatchToProps = dispatch => {
     return {
-        addTodo: (text) => dispatch(addTodo(text)) 
+        addTodo: (text) => dispatch(addTodo(text)), 
+        initList: (data) => dispatch(initList(data))
     }
 }
 

@@ -1,6 +1,9 @@
 import React from 'react';
 import './index.css'
+import Axios from 'axios';
+
 class Todo extends React.Component{
+    
     constructor(props){
         super(props);
         this.state = {
@@ -9,6 +12,10 @@ class Todo extends React.Component{
 
     deleteTodo = () => {
         this.props.deleteTodo(this.props.id)
+        Axios.delete(`https://5f2967eba1b6bf0016ead5c0.mockapi.io/todos/${this.props.id}`)
+        .then(function (response) {
+            console.log(response);
+        })
     }
 
     changeStatus = () => {
