@@ -7,6 +7,10 @@ class TodoListComponent extends React.Component{
         this.props.deleteTodo(id)
     }
 
+    changeStatus = (id) => {
+        this.props.changeStatus(id)
+    }
+
     render(){
         return this.props.todoList ? (
             <div>
@@ -15,6 +19,8 @@ class TodoListComponent extends React.Component{
                                     text={todo.text} 
                                     deleteTodo={this.deleteTodo} 
                                     id={todo.id}
+                                    status={todo.status}
+                                    changeStatus={this.changeStatus}
                                 />
                     })
                 }

@@ -11,3 +11,10 @@ export function deleteTodo(id){
         id: id
     }
 }
+
+export function changeStatus(id){
+    return{
+        type: "CHANGE_STATUS",
+        id: id
+    }
+}
