@@ -2,10 +2,14 @@ import React from 'react';
 import Todo from "../todo/index"
 import Axios from 'axios';
 
-class TodoListComponent extends React.Component{
+class DoneList extends React.Component{
 
-    deleteTodo = (id) => {
-        this.props.deleteTodo(id)
+    deleteTodo = () => {
+        this.props.deleteTodo(this.props.id)
+        Axios.delete(`https://5f2967eba1b6bf0016ead5c0.mockapi.io/todos/${this.props.id}`)
+        .then(function (response) {
+            console.log(response);
+        })
     }
 
     changeStatus = (id,status) => {
@@ -19,7 +23,6 @@ class TodoListComponent extends React.Component{
 
     render(){
         return this.props.todoList ? (
-            console.log("---"),
             <div>
                 {this.props.todoList.map((todo, index) => {
                         return <Todo key={index} 
@@ -36,4 +39,4 @@ class TodoListComponent extends React.Component{
     }
 }
 
-export default TodoListComponent
+export default DoneList

@@ -10,6 +10,6 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
-const todoFormContainer = connect(null, mapDispatchToProps) (TodoForm)
+const TodoFormContainer = connect(null, mapDispatchToProps) (TodoForm)
 
-export default todoFormContainer;
+export default TodoFormContainer;

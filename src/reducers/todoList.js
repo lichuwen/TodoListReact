@@ -1,5 +1,5 @@
 const todoList = (state = [], action) => {
-    console.log(action);
+    console.log("action",action);
     switch(action.type){
         case "ADD_TODO" : 
             return [...state, {text:action.text, id:state.length, status:false}];
@@ -9,6 +9,8 @@ const todoList = (state = [], action) => {
             return [...state.map(item => item.id === action.id ? {...item,status:!item.status} : item)]
         case "INIT_LIST":
             return [...action.data]
+        case "DONE_LIST":
+            return [...state.filter(item => item.status === true)]
         default :
             return state;
     }

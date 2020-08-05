@@ -25,3 +25,10 @@ export function initList(data){
         data: data
     }
 }
+
+export function doneList(status){
+    return{
+        type: "DONE_LIST",
+        status: status
+    }
+}

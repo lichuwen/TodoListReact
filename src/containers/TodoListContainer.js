@@ -13,6 +13,6 @@ const mapDispatchToProps = dispatch => ({
     changeStatus: (id) => dispatch(changeStatus(id))
 })
 
-const todoListContainer = connect(mapStateToProps,mapDispatchToProps)(TodoListComponent)
+const TodoListContainer = connect(mapStateToProps,mapDispatchToProps)(TodoListComponent)
 
-export default todoListContainer;
+export default TodoListContainer;
