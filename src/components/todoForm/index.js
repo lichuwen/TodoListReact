@@ -11,23 +11,22 @@ class TodoForm extends React.Component{
     }
 
     componentDidMount() {
-        const _this = this;
         getTodo()
-            .then(function (response) {
-                _this.props.initList(response.data);
+            .then((response) => {
+                this.props.initList(response.data);
             }).catch(function (error) {
                 alert(error)
             })
     }
 
-    submit = () => {
-        this.props.addTodo(this.state.text)
+    submit = () => { 
         postTodo({
             text: this.state.text,
             status: false
         })
-        .then(function (response) {
-            console.log('post:',response);
+        .then( (response) => {
+            // this.props.addTodo(this.state.text)
+            this.props.addTodo(response.data)
         })
     }
 

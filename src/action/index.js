@@ -1,7 +1,7 @@
-export function addTodo(text){
+export function addTodo(data){
     return{
         type: "ADD_TODO",
-        text: text
+        data: data
     }
 }
 

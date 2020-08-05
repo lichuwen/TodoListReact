@@ -1,8 +1,9 @@
 const todoList = (state = [], action) => {
-    console.log("action",action);
+    console.log("action:",action);
     switch(action.type){
         case "ADD_TODO" : 
-            return [...state, {text:action.text, id:state.length, status:false}];
+            console.log(action.data);
+            return [...state, {id:action.data.id, text:action.data.text, status:false}];
         case "DELETE_TODO" : 
             return [...state.filter((item) => item.id !== action.id)];   
         case "CHANGE_STATUS":
