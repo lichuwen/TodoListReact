@@ -1,12 +1,14 @@
 import React from 'react';
 import Todo from "../todo/index"
 import Axios from 'axios';
+import {putTodo,deleteTodo} from "../../api/api"
 
 class DoneList extends React.Component{
 
     deleteTodo = () => {
         this.props.deleteTodo(this.props.id)
-        Axios.delete(`https://5f2967eba1b6bf0016ead5c0.mockapi.io/todos/${this.props.id}`)
+        console.log('id',this.props.id);
+        deleteTodo(this.props.id)
         .then(function (response) {
             console.log(response);
         })
@@ -15,7 +17,10 @@ class DoneList extends React.Component{
     changeStatus = (id,status) => {
         this.props.changeStatus(id)
         const _this = this;
-        Axios.put(`https://5f2967eba1b6bf0016ead5c0.mockapi.io/todos/${id}`,{status: !status})
+        putTodo(
+            id,
+            {status: !status}
+        )
         .then(function (response) {
             _this.props.changeStatus(response.data);
         })

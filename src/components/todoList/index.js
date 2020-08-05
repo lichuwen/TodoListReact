@@ -1,6 +1,7 @@
 import React from 'react';
 import Todo from "../todo/index"
 import Axios from 'axios';
+import {putTodo} from "../../api/api"
 
 class TodoListComponent extends React.Component{
 
@@ -11,7 +12,10 @@ class TodoListComponent extends React.Component{
     changeStatus = (id,status) => {
         this.props.changeStatus(id)
         const _this = this;
-        Axios.put(`https://5f2967eba1b6bf0016ead5c0.mockapi.io/todos/${id}`,{status: !status})
+        putTodo(
+            id,
+            {status: !status}
+        )
         .then(function (response) {
             _this.props.changeStatus(response.data);
         })
@@ -19,7 +23,6 @@ class TodoListComponent extends React.Component{
 
     render(){
         return this.props.todoList ? (
-            console.log("---"),
             <div>
                 {this.props.todoList.map((todo, index) => {
                         return <Todo key={index} 

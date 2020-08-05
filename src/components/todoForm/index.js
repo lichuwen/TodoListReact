@@ -1,5 +1,6 @@
 import React from 'react';
 import Axios from 'axios';
+import {getTodo,postTodo} from "../../api/api"
 
 class TodoForm extends React.Component{
     constructor(props){
@@ -11,7 +12,7 @@ class TodoForm extends React.Component{
 
     componentDidMount() {
         const _this = this;
-        Axios.get('https://5f2967eba1b6bf0016ead5c0.mockapi.io/todos')
+        getTodo()
             .then(function (response) {
                 _this.props.initList(response.data);
             }).catch(function (error) {
@@ -21,9 +22,12 @@ class TodoForm extends React.Component{
 
     submit = () => {
         this.props.addTodo(this.state.text)
-        Axios.post('https://5f2967eba1b6bf0016ead5c0.mockapi.io/todos', { text: this.state.text, status: false })
+        postTodo({
+            text: this.state.text,
+            status: false
+        })
         .then(function (response) {
-            console.log(response);
+            console.log('post:',response);
         })
     }
 
